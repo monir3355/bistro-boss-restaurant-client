@@ -2,6 +2,7 @@ import React from "react";
 
 const MenuItem = ({ item }) => {
   const { category, image, name, price, recipe } = item;
+  // console.log(item);
   return (
     <div className="flex gap-4">
       <img style={{ borderRadius: "0 200px 200px 200px" }} src={image} alt="" />

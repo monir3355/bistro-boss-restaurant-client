@@ -1,8 +1,9 @@
 import React from "react";
 import MenuItem from "../../share/menusItems/MenuItem";
 import Cover from "../../share/Cover";
+import { Link } from "react-router-dom";
 
-const MenuCategory = ({ img, title, desc, items, buttonTitle }) => {
+const MenuCategory = ({ img, title, desc, items }) => {
   return (
     <div className="mb-16">
       {title && <Cover img={img} title={title} desc={desc}></Cover>}
@@ -12,7 +13,9 @@ const MenuCategory = ({ img, title, desc, items, buttonTitle }) => {
         ))}
       </div>
       <div className="text-center">
-        <button className="btn btn-outline">{buttonTitle}</button>
+        <Link to={`/shop/${title}`}>
+          <button className="btn btn-outline">Order Now</button>
+        </Link>
       </div>
     </div>
   );
