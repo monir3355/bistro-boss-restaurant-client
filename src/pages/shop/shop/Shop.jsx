@@ -33,20 +33,22 @@ const Shop = () => {
         desc={"Lorem Ipsum has been the industry"}
       ></Cover>
       {/* Tabs */}
-      <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList>
-          <Tab>Salad</Tab>
-          <Tab>Pizza</Tab>
-          <Tab>Soups</Tab>
-          <Tab>Desserts</Tab>
-          <Tab>Drinks</Tab>
-        </TabList>
-        <TabPanel>{<ShopTab items={salads}></ShopTab>}</TabPanel>
-        <TabPanel>{<ShopTab items={pizzas}></ShopTab>}</TabPanel>
-        <TabPanel>{<ShopTab items={soups}></ShopTab>}</TabPanel>
-        <TabPanel>{<ShopTab items={desserts}></ShopTab>}</TabPanel>
-        <TabPanel>{<ShopTab items={drinks}></ShopTab>}</TabPanel>
-      </Tabs>
+      <div className="container mx-auto">
+        <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+          <TabList>
+            <Tab>Salad</Tab>
+            <Tab>Pizza</Tab>
+            <Tab>Soups</Tab>
+            <Tab>Desserts</Tab>
+            <Tab>Drinks</Tab>
+          </TabList>
+          <TabPanel>{<ShopTab items={salads}></ShopTab>}</TabPanel>
+          <TabPanel>{<ShopTab items={pizzas}></ShopTab>}</TabPanel>
+          <TabPanel>{<ShopTab items={soups}></ShopTab>}</TabPanel>
+          <TabPanel>{<ShopTab items={desserts}></ShopTab>}</TabPanel>
+          <TabPanel>{<ShopTab items={drinks}></ShopTab>}</TabPanel>
+        </Tabs>
+      </div>
     </div>
   );
 };
