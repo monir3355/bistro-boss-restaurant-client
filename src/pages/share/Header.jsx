@@ -1,7 +1,15 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Header = () => {
+  const { logOut, user } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navItems = (
     <>
       <li>
@@ -11,14 +19,36 @@ const Header = () => {
         <Link to="/menu">Our Menu</Link>
       </li>
       <li>
-        <Link to="/shop/salads">Our Shop</Link>
+        <Link to="/shop/salad">Our Shop</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/secrat">Secrat</Link>
       </li>
       <li>
         <Link to="/signUp">Sign Up</Link>
       </li>
+      {user ? (
+        <>
+          <li>
+            <label className="btn btn-ghost btn-circle">
+              <div className="w-10 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+          </li>
+          <li>
+            <button onClick={handleLogOut} className="btn btn-outline">
+              <Link to="/login">Log Out</Link>
+            </button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (

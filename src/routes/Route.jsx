@@ -5,6 +5,8 @@ import Menu from "../pages/menu/menu/Menu";
 import Shop from "../pages/shop/shop/Shop";
 import Login from "../pages/login/Login";
 import SignUp from "../pages/register/SignUp";
+import Secrat from "../pages/Secrat";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/shop/:category",
         element: <Shop />,
+      },
+      {
+        path: "/secrat",
+        element: (
+          <PrivateRoute>
+            <Secrat />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
