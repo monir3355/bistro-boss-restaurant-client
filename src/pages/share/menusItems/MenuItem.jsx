@@ -5,7 +5,12 @@ const MenuItem = ({ item }) => {
   // console.log(item);
   return (
     <div className="flex gap-4">
-      <img style={{ borderRadius: "0 200px 200px 200px" }} src={image} alt="" />
+      <img
+        className="w-24"
+        style={{ borderRadius: "0 200px 200px 200px" }}
+        src={image}
+        alt=""
+      />
       <div className="space-y-3">
         <div className="flex justify-between">
           <h4 className="text-lg font-semibold">{name}------------</h4>
