@@ -10,6 +10,7 @@ import {
 } from "react-simple-captcha";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../components/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -136,6 +137,7 @@ const Login = () => {
                 Account
               </Link>
             </p>
+            <SocialLogin />
             <p className="text-green-500">{success}</p>
             <p className="text-red-500">{error}</p>
           </div>

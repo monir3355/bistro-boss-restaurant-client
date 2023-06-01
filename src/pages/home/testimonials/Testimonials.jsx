@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TitleSection from "../../share/TitleSection";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FaRegStar, FaStar } from "react-icons/fa";
+import { FaRegStar, FaStar, FaQuoteLeft } from "react-icons/fa";
 
 // Import Swiper styles
 import "swiper/css";
@@ -40,7 +40,9 @@ const Testimonials = () => {
                   />
                 </div>
                 <div className="space-y-3">
-                  <h1 className="text-4xl">"</h1>
+                  <h1 className="my-6">
+                    <FaQuoteLeft className="text-center w-12 h-12 mx-auto" />
+                  </h1>
                   <p>{review.details}</p>
                   <h4 className="text-xl font-semibold text-yellow-600">
                     {review.name}

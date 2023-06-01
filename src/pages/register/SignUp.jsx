@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin";
 
 const SignUp = () => {
   const [success, setSuccess] = useState("");
@@ -29,6 +31,25 @@ const SignUp = () => {
             console.log("Profile Updated");
             setPUpdate(new Date().getTime());
             navigate("/");
+            const users = { name: data.name, email: data.email };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(users),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire(
+                    "Success!",
+                    "User created successfully.",
+                    "success"
+                  );
+                }
+              });
           })
           .catch((error) => {
             setError(error.message);
@@ -167,6 +188,7 @@ const SignUp = () => {
             </p>
             <p className="text-green-500">{success}</p>
             <p className="text-red-500">{error}</p>
+            <SocialLogin />
           </div>
         </div>
       </div>

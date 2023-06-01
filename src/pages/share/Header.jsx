@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
   const [cart] = useCart();
-  const { logOut, user } = useContext(AuthContext);
+  const { logOut, user } = useAuth();
+  // console.log(user.displayName);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -42,28 +44,6 @@ const Header = () => {
           </Link>
         </label>
       </li>
-      {user ? (
-        <>
-          <li>
-            <label className="btn btn-ghost btn-circle">
-              <div className="w-10 rounded-full">
-                <img src={user?.photoURL} />
-              </div>
-            </label>
-          </li>
-          <li>
-            <button onClick={handleLogOut} className="btn btn-outline">
-              <Link to="/login">Log Out</Link>
-            </button>
-          </li>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </>
-      )}
     </>
   );
   return (
@@ -88,7 +68,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black bg-opacity-75 rounded-box w-52"
           >
             {navItems}
           </ul>
@@ -101,7 +81,32 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <ul className="flex gap-4">
+          {user ? (
+            <>
+              <li>
+                <label className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+              </li>
+              <li>
+                <button onClick={handleLogOut} className="btn">
+                  <Link to="/login">Log Out</Link>
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link className="btn" to="/login">
+                  Login
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
       </div>
     </div>
   );

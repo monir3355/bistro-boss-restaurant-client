@@ -9,6 +9,7 @@ import Secrat from "../pages/Secrat";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../layout/Dashboard";
 import MyCart from "../pages/dashbord/MyCart";
+import AllUsers from "../pages/dashbord/allUsers/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -51,8 +52,15 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
-    children: [{ path: "myCart", element: <MyCart /> }],
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "myCart", element: <MyCart /> },
+      { path: "allUsers", element: <AllUsers /> },
+    ],
   },
 ]);
 
