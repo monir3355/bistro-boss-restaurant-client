@@ -10,6 +10,7 @@ import {
   FaWallet,
   FaUtensils,
   FaUsers,
+  FaBarcode,
 } from "react-icons/fa";
 import { TiContacts } from "react-icons/ti";
 import useCart from "../hooks/useCart";
@@ -50,12 +51,23 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/manageItem"
+                  to="/dashboard/addItem"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-black"
                   }
                 >
                   <FaUtensils className="h-6 w-6" />
+                  <span className="uppercase">Add Item</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/manageItem"
+                  className={({ isActive }) =>
+                    isActive ? "text-white" : "text-black"
+                  }
+                >
+                  <FaBarcode className="h-6 w-6" />
                   <span className="uppercase">Manage Items</span>
                 </NavLink>
               </li>

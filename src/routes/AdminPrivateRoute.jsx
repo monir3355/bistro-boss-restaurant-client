@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
 
@@ -13,7 +13,7 @@ const AdminPrivateRoute = ({ children }) => {
   if (loading || isAdminLoading) {
     return <button className="btn loading">loading</button>;
   }
-  return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
+  return <Navigate to="/" state={{ from: location }} replace></Navigate>;
 };
 
 export default AdminPrivateRoute;
