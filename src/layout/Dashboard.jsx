@@ -120,7 +120,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/payment"
+                  to="/dashboard/paymentHistory"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-black"
                   }
@@ -194,7 +194,7 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink
-              to="/dashboard/shop"
+              to="/shop/salad"
               className={({ isActive }) =>
                 isActive ? "text-white" : "text-black"
               }

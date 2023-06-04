@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import TitleSection from "../share/TitleSection";
 import useCart from "../../hooks/useCart";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
@@ -37,7 +38,7 @@ const MyCart = () => {
       <Helmet>
         <title>Bistro Boss | My Cart</title>
       </Helmet>
-      <div className="my-12">
+      <div className="mt-10">
         <TitleSection
           subHeading={"My Cart"}
           heading={"WANNA ADD MORE?"}
@@ -46,9 +47,11 @@ const MyCart = () => {
       <div className="flex flex-col md:flex-row md:justify-between gap-6">
         <h2 className="text-3xl">Total orders: {cart.length}</h2>
         <h2 className="text-3xl">Total price: ${totalPrice}</h2>
-        <button className="btn bg-[#D1A054] border-0 hover:bg-[#dfab5c]">
-          Pay
-        </button>
+        <Link to="/dashboard/payment">
+          <button className="btn bg-[#D1A054] border-0 hover:bg-[#dfab5c]">
+            Pay
+          </button>
+        </Link>
       </div>
       <div className="overflow-x-auto w-full my-12">
         <table className="table w-full">

@@ -3,6 +3,7 @@ import TitleSection from "../../share/TitleSection";
 import useMenu from "../../../hooks/useMenu";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ManageItems = () => {
   const [menus, loading, refetch] = useMenu();
@@ -30,6 +31,9 @@ const ManageItems = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss | Manage Item</title>
+      </Helmet>
       <div className="py-10">
         <TitleSection
           subHeading={"--Hurry Up--"}
