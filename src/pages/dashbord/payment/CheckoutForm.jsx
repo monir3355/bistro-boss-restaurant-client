@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import "./CheckoutForm.css";
+// import "./CheckoutForm.css";
 
 const CheckoutForm = ({ price, cart }) => {
   const stripe = useStripe();

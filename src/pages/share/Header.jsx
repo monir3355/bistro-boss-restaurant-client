@@ -5,10 +5,12 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
+import useAdmin from "../../hooks/useAdmin";
 
 const Header = () => {
   const [cart] = useCart();
   const { logOut, user } = useAuth();
+  const [isAdmin] = useAdmin();
   // console.log(user.displayName);
   const handleLogOut = () => {
     logOut()
@@ -27,11 +29,17 @@ const Header = () => {
         <Link to="/shop/salad">Our Shop</Link>
       </li>
       <li>
-        <Link to="/secrat">Secrat</Link>
-      </li>
-      <li>
         <Link to="/signUp">Sign Up</Link>
       </li>
+      {isAdmin ? (
+        <li>
+          <Link to="/dashboard/adminHome">Dashboard</Link>
+        </li>
+      ) : (
+        <li>
+          <Link to="/dashboard/userHome">Dashboard</Link>
+        </li>
+      )}
       <li>
         <label className="btn btn-ghost btn-circle">
           <Link to="/dashboard/myCart">
