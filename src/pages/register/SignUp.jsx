@@ -32,13 +32,16 @@ const SignUp = () => {
             setPUpdate(new Date().getTime());
             navigate("/");
             const users = { name: data.name, email: data.email };
-            fetch("http://localhost:5000/users", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(users),
-            })
+            fetch(
+              "https://bistro-boss-restaurant-server-five.vercel.app/users",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(users),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 if (data.insertedId) {
