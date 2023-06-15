@@ -1,4 +1,4 @@
-# Bistro Boss Restaurant Management
+# Bistro Boss Restaurant Management System
 
 Best Online Restaurant Management.
 
@@ -12,7 +12,7 @@ Best Online Restaurant Management.
 
 ## Projects Live Link
 
-Hosted in Firebase -> [Bistro Boss Restaurant Management](hhttps://bistro-boss-restaurant-c3449.web.app/)
+Hosted in Firebase -> [Bistro Boss Restaurant Management System](https://bistro-boss-restaurant-c3449.web.app/)
 
 ### Resources, Framework and Library and Used packages / technology name
 
